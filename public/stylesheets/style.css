@@ -16,3 +16,26 @@ margin-right: 10px;
 text-decoration: none;
 color: orangered;
 }
+.login-form  {
+    font-family: 'Poppins', sans-serif;
+}
+.password-login {
+    font-family: 'Poppins', sans-serif;
+}
+.signup-form {
+    font-family: 'Poppins', sans-serif;
+}
+.footer-style {
+    font-family: 'Poppins', sans-serif;
+    text-align: center;
+}
+.button-style {
+    margin-top: 3px;
+}
+.post-list {
+    font-family: 'Poppins', sans-serif;    
+}
+.individual-post {
+    margin: 15px;
+    background-color: rgb(230, 227, 227) ;
+}

@@ -1,42 +1,46 @@
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tech Blog</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Monoton&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="/stylesheets/style.css" />
-  </head>
-  <body>
-    <div class="wrapper">
-      <header class="background">
-        <h1 class="header-title">
-          <a href="/">TECH BLOG</a>
-        </h1>
-        <nav class="navbar">
-          <a class="navbar-child" href="/home/login">login</a>
-          <a class="navbar-child" href="/dashboard">dashboard</a>
-          <a class="navbar-child" href="/home/">homepage</a>
-        </nav>
-      </header>
-      <main>
-        {{{body}}}
-      </main>
-      <footer class="footer-style">
-        Thanks for visiting!
-      </footer>
-    </div>
-    <script src="/javascript/index.js"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tech Blog</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;300&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Monoton&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/stylesheets/style.css" />
+</head>
+
+<body>
+  <div class="wrapper">
+    <header class="background">
+      <h1 class="header-title">
+        <a href="/">TECH BLOG</a>
+      </h1>
+   <nav>
+  {{#if loggedIn}}
+  <button id="logout" class="btn-no-style">logout</button>
+  {{else}}
+  <a href="/login">login</a>
+  {{/if}}
+</nav>
+    </header>
+    <main>
+      {{{body}}}
+    </main>
+    <footer class="footer-style">
+      Thanks for visiting!
+    </footer>
+  </div>
+  <script src="/javascript/index.js"></script>
+  
+  {{#if loggedIn}}
+<script src="/javascript/logout.js"></script>
+{{/if}}
+</body>
+</body>
+
 </html>

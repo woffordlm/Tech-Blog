@@ -7,7 +7,7 @@ const commentRoutes = require ("./comment-routes")
 // router.use('/home', homeRoutes);
 router.use('/users', userRoutes);
 router.use('/post', postRoutes)
-router.use('/comment', commentRoutes)
+router.use('/comments', commentRoutes)
 
 
 router.use((req, res) => {

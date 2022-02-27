@@ -51,41 +51,42 @@ router.post('/login', (req, res) => {
     });
   });
 });
-
-// fix this route
-router.put('/login', (req, res) => {
-
-  User.findOne({
-    password: req.body.password,
-    where: {
-      id: req.params.id
-    }
-  }).then(dbUserData => {
-    if (!dbUserData){
-      res.status(400).json({message: 'No user with that email address!'});
-      return
-    }
-    res.json({ user: dbUserData});
-
-    // Verify User
-  })
-
-})
 router.get('/', (req, res) => {
+  console.log(req.session);
+  if (req.session.loggedIn) {
+    res.redirect('/');
+    return;
+  }
 
-  User.findAll({
-    attributes: { exclude: ['password'] }
-  })
-  .then(dbUserData => {
-    if (!dbUserData){
-      res.status(400).json({message: 'No user with that email address!'});
-      return
-    }
-    res.json({ user: dbUserData});
-
-    // Verify User
-  })
-
+  res.render('login');
+  // other logic...
+});
+router.post('/logout', (req,res) => {
+  if (req.session.loggedIn) {
+    req.session.destroy(() => {
+      res.status(204).end();
+    });
+  }
+  else {
+    res.status(404).end();
+  }
 })
+
+// router.get('/', (req, res) => {
+
+//   User.findAll({
+//     attributes: { exclude: ['password'] }
+//   })
+//   .then(dbUserData => {
+//     if (!dbUserData){
+//       res.status(400).json({message: 'No user with that email address!'});
+//       return
+//     }
+//     res.json({ user: dbUserData});
+
+//     // Verify User
+//   })
+
+// })
 
 module.exports = router

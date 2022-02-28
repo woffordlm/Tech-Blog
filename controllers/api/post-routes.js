@@ -2,11 +2,12 @@ const router = require("express").Router();
 const { Post, Comment, User } = require("../../models");
 // creat a post
 router.post("/", (req, res) => {
-    Post.create({
-        title: req.body.title,
-        post_url: req.body.post_url,
-        user_id: req.body.user_id
-      })
+  console.log(req.session)
+  Post.create({
+    title: req.body.title,
+    post_url: req.body.post_url,
+    user_id: req.session.user_id
+  })
         .then(dbPostData => res.json(dbPostData))
         .catch(err => {
           console.log(err);

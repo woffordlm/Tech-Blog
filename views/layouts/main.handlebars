@@ -22,11 +22,15 @@
       </h1>
    <nav>
   {{#if loggedIn}}
-  <button id="logout" class="btn-no-style">logout</button>
+  <a class="navbar-child" href="/dashboard">Dash Board |</a>
+   <a class="navbar-child" href="/">homepage |</a>
+  <a id="logout" class="btn-no-style navbar-child">logout</a>
   {{else}}
-  <a href="/login">login</a>
+  <a class="navbar-child" href="/login">login|</a> 
+  <a class="navbar-child" href="/">homepage</a>
   {{/if}}
 </nav>
+<nav></nav>
     </header>
     <main>
       {{{body}}}
@@ -34,9 +38,7 @@
     <footer class="footer-style">
       Thanks for visiting!
     </footer>
-  </div>
-  <script src="/javascript/index.js"></script>
-  
+  </div>  
   {{#if loggedIn}}
 <script src="/javascript/logout.js"></script>
 {{/if}}

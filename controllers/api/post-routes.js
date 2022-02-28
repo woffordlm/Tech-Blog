@@ -42,8 +42,9 @@ router.get("/", (req, res) => {
           res.status(404).json({ message: 'No post found with this id' });
           return;
         }
-        const posts = dbPostData.map(post => post.get({ plain: true }));
-        res.render('homepage',{posts});
+        res.json(dbPostData)
+        // const posts = dbPostData.map(post => post.get({ plain: true }));
+        // res.render('homepage',{posts});
       })
       .catch(err => {
         console.log(err);

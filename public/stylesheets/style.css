@@ -6,7 +6,7 @@
     text-align: center;
     font-size: 40px;
 }
-.navbar {
+nav {
     text-align: center;
     
 }
@@ -38,4 +38,12 @@ color: orangered;
 .individual-post {
     margin: 15px;
     background-color: rgb(230, 227, 227) ;
+}
+.background-button {
+    background-color:  orangered;
+}
+.background-dash {
+    background-color:peachpuff;
+    padding: 20px;
+    
 }

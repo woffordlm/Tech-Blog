@@ -1,12 +1,68 @@
 {{> post-info post}}
 <form class="comment-form">
-  <div>
+  {{!-- <div>
     <textarea name="comment-body"></textarea>
-  </div>
-
+  </div> --}}
   <div>
-    <button type="submit">add comment</button>
-    <button type="button" class="upvote-btn">upvote</button>
+ <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#form"> Add comment </button>
+ <button id="delete-post-btn" class="btn btn-danger "> Delete</button>
+ {{!-- <a type="button" class="edit-form btn btn-danger" href="/edit">Edit</a> --}}
+ <a href="/edit/{{post.id}}" class="edit-link edit-post-form">Edit post</a>
   </div>
 </form>
 {{> comments post.comments}}
+
+
+{{!-- modal --}}
+{{#if loggedIn}}
+<div class="modal fade " id="form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content comment-form ">
+      <div class="text-right cross"> <i class="fa fa-times mr-2"></i> </div>
+      <div class="card-body text-center">
+        <div class="comment-box text-center">
+         
+          <div class="comment-area"> <textarea name="comment-body" id="text-area" class=" comment-body"
+              placeholder="what is your comment?" rows="4"></textarea> </div>
+          <div class="text-center mt-4"> <button type="submit" class="btn btn-success send px-5 m-2 comment-button">Add Comment
+            </button>
+            <br>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{{else}}
+{{/if}}
+
+{{!-- modal
+{{#if loggedIn}}
+<div class="modal fade " id="edit-form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered" role="document">
+    <div class="modal-content comment-form ">
+      <section>
+        <form class="new-post-form background-dash">
+          <div>
+            <label for="post-title">Title</label>
+            <input type="text" id="post-title" name="post-title" />
+          </div>
+          <div>
+            <label for="post-url">Link</label>
+            <input id="post-url" name="post-url" />
+          </div>
+          <button type="submit" class="btn background-button text-white m-1 ">Create</button>
+        </form>
+      </section>
+    </div>
+</div>
+{{else}}
+{{/if}} --}}
+
+
+
+{{#if loggedIn}}
+<script src="/javascript/comment.js"></script>
+<script src="/javascript/delete-post.js"></script>
+<script src="/javascript/edit-post.js"></script>
+{{/if}}

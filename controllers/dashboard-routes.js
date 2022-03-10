@@ -42,4 +42,8 @@ const { Post, User, Comment } = require('../models');
         res.status(500).json(err);
       });
   });
+
+  
+
+ 
 module.exports = router;

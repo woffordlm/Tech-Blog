@@ -1,9 +1,11 @@
-<article class="post">
-  <div class="title">
-    <a href="{{post_url}}" target="_blank">{{title}}</a>
-    <span>({{post_url}})</span>
+<article class="post bg-secondary rounded">
+  <div class="title text-white ">
+    <a class="text-white"  href="/post/{{id}}" target="_blank" >{{title}}  </a>
+    <span >({{post_url}})</span>
   </div>
-  <div class="meta">    |
-    <a href="/post/{{id}}">{{comments.length}} comment(s)</a>
+  <div class="meta text-white">    |
+    <a class="text-white"  href="/post/{{id}}">{{comments.length}} comment(s)</a>
+     <p>{{created_at}}</p>
+   
   </div>
 </article>

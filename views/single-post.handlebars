@@ -1,20 +1,21 @@
 {{> post-info post}}
+ {{#if loggedIn}}
 <form class="comment-form">
-  {{!-- <div>
-    <textarea name="comment-body"></textarea>
-  </div> --}}
   <div>
  <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#form"> Add comment </button>
  <button id="delete-post-btn" class="btn btn-danger "> Delete</button>
  {{!-- <a type="button" class="edit-form btn btn-danger" href="/edit">Edit</a> --}}
- <a href="/edit/{{post.id}}" class="edit-link edit-post-form">Edit post</a>
+ <a href="/edit/{{post.id}}" class=" btn btn-danger edit-link edit-post-form">Edit post</a>
   </div>
 </form>
+</div>
+{{else}}
+{{/if}}
 {{> comments post.comments}}
 
 
 {{!-- modal --}}
-{{#if loggedIn}}
+
 <div class="modal fade " id="form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document">
     <div class="modal-content comment-form ">
@@ -32,9 +33,7 @@
       </div>
     </div>
   </div>
-</div>
-{{else}}
-{{/if}}
+
 
 {{!-- modal
 {{#if loggedIn}}
